@@ -44,13 +44,13 @@ jobs:
       id: deploy-apprunner
       uses: awslabs/amazon-app-runner-deploy@main
       with:
-          service: app-runner-git-deploy-service
-          image: ${{ steps.build-image.outputs.image }}
-          access-role-arn: ${{ secrets.ROLE_ARN }}
-          region: us-east-1
-          cpu : 1
-          memory : 2
-          wait-for-service-stability: true
+        service: app-runner-git-deploy-service
+        image: ${{ steps.build-image.outputs.image }}
+        access-role-arn: ${{ secrets.ROLE_ARN }}
+        region: us-east-1
+        cpu : 1
+        memory : 2
+        wait-for-service-stability: true
       
     - name: App Runner output
       run: echo "App runner output ${{ steps.deploy-apprunner.outputs.service-id }}"  
